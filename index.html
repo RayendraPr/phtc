@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluasi Komprehensif 2 Tahun Kepemimpinan Prabowo-Gibran (2024-2026)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom Palette & Styling Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#FDFBF7',
+                            card: '#FFFFFF',
+                            primary: '#1E3A2B',   /* Warm Forest Green */
+                            secondary: '#8C4327', /* Earthy Terracotta */
+                            accent: '#D97706',    /* Amber Gold */
+                            neutral: '#292524',   /* Stone Dark */
+                            muted: '#78716C',     /* Stone Muted */
+                            light: '#F5F5F4'      /* Stone Light */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FDFBF7;
+            color: #292524;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        
+        /* Strict Chart Container Limits */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 620px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 360px;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F5F5F4;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #A8A29E;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #78716C;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Chosen Palette: Warm Neutral Harmonious (Background: #FDFBF7, Primary: Deep Forest #1E3A2B, Accent: Terracotta #8C4327 & Amber #D97706) -->
+    
+    <!-- Application Structure Plan:
+        1. Executive Header & Top Metric Ticker: Menyajikan konteks waktu (28 September 2026 / Hari Ke-708) & angka pencapaian makro paling krusial.
+        2. Navigation Tabs (SPA Flow):
+           - Overview & Makro: Tren Kemiskinan, Pengangguran, & PDB/BUMN.
+           - Matriks 17 Program Prioritas: Filterable grid dengan kartu interaktif & drawer detail modal (termasuk Wawasan Orde 2 & 3).
+           - Deep Dive: Program Makan Bergizi Gratis (MBG): Realisasi, krisis keracunan, investigasi, & Perka BGN 4/2026.
+           - Sentimen & Reputasi Publik: Evaluasi survei (LSI, SMRC, Poltracking) & Analisis Disonansi Komunikasi (TII & IndoStrategi).
+        3. Modal Detail Program: Menampilkan analisis rinci, metrik kuantitatif, dan implikasi sistemik setiap prioritas tanpa berpindah halaman.
+        4. User Flow Rationale: Menghindari beban kognitif dari laporan teks panjang dengan membagi data menjadi layer ringkasan visual -> filter tematis -> detail mendalam saat diklik.
+    -->
+
+    <!-- Visualization & Content Choices:
+        1. Chart Tren Kemiskinan & Pengangguran -> Line Chart (Chart.js) -> Menunjukkan penurunan tingkat kemiskinan (8.57% -> 8.07%) dan TPT (4.76%) terhadap target RPJMN 2029 (<5%).
+        2. Chart Transformasi Danantara & BUMN -> Bar/Doughnut Chart (Chart.js) -> Konsolidasi 1.074 entitas BUMN menjadi max 300 & pendanaan Patriot Bonds Rp 50T.
+        3. Chart Alokasi & Capaian MBG -> Grouped Bar Chart (Chart.js) -> Membandingkan Anggaran (Rp 71T -> Rp 218.77T) vs Penyerapan & Target Penerima (56.99 Juta).
+        4. Chart Polling Approval Rating -> Line/Area Chart (Chart.js) -> Perjalanan kepuasan publik dari pasca-100 hari (81.4%), krisis mid-2026 (51.1%), hingga stabilisasi (74.9%).
+        5. Chart Temuan Skrining Kesehatan CKG -> Horizontal Bar Chart (Chart.js) -> Deteksi Hipertensi (4.9M), Prehipertensi (5.5M), Obesitas (11M) dari 73M warga.
+        * Confirmation: Confirming NO SVG graphics or Mermaid JS used. All visual markers use Tailwind CSS shapes, Unicode characters, and Canvas rendering.
+    -->
+
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <!-- Header Section -->
+    <header class="bg-brand-primary text-white border-b border-stone-800 sticky top-0 z-40 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-brand-secondary text-white text-xs font-semibold px-2.5 py-0.5 rounded">EVALUASI TEKNOKRATIS</span>
+                        <span class="text-stone-300 text-xs font-medium">2024 &mdash; 28 SEPTEMBER 2026</span>
+                    </div>
+                    <h1 class="text-xl sm:text-2xl font-bold tracking-tight mt-1">Dua Tahun Kepemimpinan Prabowo-Gibran</h1>
+                    <p class="text-xs sm:text-sm text-stone-300">Analisis Realisasi Asta Cita, 17 Program Prioritas &amp; Program Hasil Terbaik Cepat (PHTC)</p>
+                </div>
+                <!-- Stat Ticker -->
+                <div class="grid grid-cols-3 gap-2 sm:gap-4 bg-emerald-950/60 p-2.5 rounded-lg border border-emerald-800/40 text-center">
+                    <div>
+                        <div class="text-xs text-stone-300">Kemiskinan</div>
+                        <div class="text-base sm:text-lg font-bold text-amber-400">8,07%</div>
+                        <div class="text-[10px] text-stone-400">Turun dari 8,57%</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-stone-300">Penerima MBG</div>
+                        <div class="text-base sm:text-lg font-bold text-emerald-400">56,99M</div>
+                        <div class="text-[10px] text-stone-400">27.485 Dapur SPPG</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-stone-300">Approval Rating</div>
+                        <div class="text-base sm:text-lg font-bold text-sky-400">74,9%</div>
+                        <div class="text-[10px] text-stone-400">Poltracking Sep '26</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Tabs -->
+        <nav class="bg-emerald-900/90 border-t border-emerald-800/60 text-xs sm:text-sm">
+            <div class="max-w-7xl mx-auto px-4 flex space-x-1 overflow-x-auto py-2" id="mainTabNav">
+                <button onclick="switchTab('overview')" id="tab-overview" class="tab-btn px-4 py-2 rounded-md font-medium whitespace-nowrap bg-brand-secondary text-white shadow-sm transition">
+                    &#128200; Ringkasan Makro
+                </button>
+                <button onclick="switchTab('programs')" id="tab-programs" class="tab-btn px-4 py-2 rounded-md font-medium whitespace-nowrap text-stone-200 hover:bg-emerald-800/50 transition">
+                    &#128179; 17 Program Prioritas
+                </button>
+                <button onclick="switchTab('mbg')" id="tab-mbg" class="tab-btn px-4 py-2 rounded-md font-medium whitespace-nowrap text-stone-200 hover:bg-emerald-800/50 transition">
+                    &#127827; Deep Dive MBG
+                </button>
+                <button onclick="switchTab('sentiment')" id="tab-sentiment" class="tab-btn px-4 py-2 rounded-md font-medium whitespace-nowrap text-stone-200 hover:bg-emerald-800/50 transition">
+                    &#9878; Sentimen &amp; Komunikasi
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <!-- TAB 1: OVERVIEW & MAKRO -->
+        <section id="section-overview" class="space-y-6">
+            <!-- Intro Paragraph -->
+            <div class="bg-white rounded-xl p-5 border border-stone-200 shadow-sm">
+                <h2 class="text-lg font-bold text-brand-primary mb-2 flex items-center">
+                    <span class="mr-2">&#127963;</span> Paradigma Pembangunan &amp; Kinerja Makro Ekonomi (2024–2026)
+                </h2>
+                <p class="text-sm text-stone-600 leading-relaxed">
+                    Memasuki akhir September 2026, pemerintahan Kabinet Merah Putih menggeser arsitektur kebijakan dari fokus infrastruktur fisik murni menuju keseimbangan holistik antara <strong>kapital manusia, kedaulatan sumber daya dasar, dan reformasi institusional</strong>. Berdasarkan data BPS dan laporan RAPBN 2026, indikator kesejahteraan menunjukkan tren positif meski dibayangi oleh ketimpangan sektor informal dan tantangan rasio pajak.
+                </p>
+            </div>
+
+            <!-- Key Metric Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold text-stone-500 uppercase">Produksi Beras Nasional</span>
+                        <div class="text-2xl font-bold text-brand-primary mt-1">34,77 Juta Ton</div>
+                        <p class="text-xs text-emerald-700 mt-1 font-medium">&#9650; Menuju Swasembada Absolut</p>
+                    </div>
+                    <div class="mt-3 pt-2 border-t border-stone-100 text-[11px] text-stone-500">
+                        Stok Bulog: 4,705 Juta Ton (CBP &amp; Komersial)
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold text-stone-500 uppercase">Transisi Energi Mandatori</span>
+                        <div class="text-2xl font-bold text-brand-secondary mt-1">Biodiesel B50</div>
+                        <p class="text-xs text-amber-700 mt-1 font-medium">Berlaku Efektif 1 Juli 2026</p>
+                    </div>
+                    <div class="mt-3 pt-2 border-t border-stone-100 text-[11px] text-stone-500">
+                        Alokasi FAME CPO: 15,6 Juta Kiloliter
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold text-stone-500 uppercase">Restrukturisasi BUMN</span>
+                        <div class="text-2xl font-bold text-stone-800 mt-1">1.074 &#8594; 300</div>
+                        <p class="text-xs text-emerald-700 mt-1 font-medium">Efisiensi via Danantara</p>
+                    </div>
+                    <div class="mt-3 pt-2 border-t border-stone-100 text-[11px] text-stone-500">
+                        Pemangkasan Inefisiensi Korporat Rp 50 Triliun
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold text-stone-500 uppercase">Skrining Kesehatan CKG</span>
+                        <div class="text-2xl font-bold text-sky-700 mt-1">73,0 Juta Jiwa</div>
+                        <p class="text-xs text-stone-600 mt-1 font-medium">24,9% Populasi Nasional</p>
+                    </div>
+                    <div class="mt-3 pt-2 border-t border-stone-100 text-[11px] text-stone-500">
+                        Target Akhir 2026: 130,7 Juta Penduduk
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Row 1 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Chart 1: Kemiskinan & TPT -->
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+                    <div class="mb-3">
+                        <h3 class="text-base font-bold text-brand-primary">Trayektori Kemiskinan &amp; Pengangguran</h3>
+                        <p class="text-xs text-stone-500">Perbandingan realisasi historis (2024-2026) dengan Target RPJMN 2029</p>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="chartKemiskinan"></canvas>
+                    </div>
+                    <div class="mt-3 p-2.5 bg-amber-50 rounded-lg border border-amber-200 text-xs text-amber-900">
+                        <strong>Catatan Kritis LPEM FEB UI &amp; INDEF:</strong> Meskipun angka kemiskinan turun ke 8,07%, proporsi pekerja informal meningkat menjadi 59,4% dengan Gini Ratio 0,379, menandakan kerentanan kelas menengah bawah.
+                    </div>
+                </div>
+
+                <!-- Chart 2: Danantara & BUMN -->
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+                    <div class="mb-3">
+                        <h3 class="text-base font-bold text-brand-primary">Restrukturisasi Danantara &amp; Pendanaan Hilirisasi</h3>
+                        <p class="text-xs text-stone-500">Konsolidasi BUMN, Laba Bersih, &amp; Instrumen Patriot Bonds</p>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="chartDanantara"></canvas>
+                    </div>
+                    <div class="mt-3 p-2.5 bg-emerald-50 rounded-lg border border-emerald-200 text-xs text-emerald-900">
+                        <strong>Patriot Bonds:</strong> Instrumen <em>quasi-sovereign</em> berimbal hasil ~2% berhasil menyerap dana privat Rp 50T (2025) dan ditargetkan Rp 7T (Tahap 1 2026) tanpa memperlebar defisit APBN.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- TAB 2: 17 PROGRAM PRIORITAS -->
+        <section id="section-programs" class="space-y-6 hidden">
+            <!-- Intro Paragraph -->
+            <div class="bg-white rounded-xl p-5 border border-stone-200 shadow-sm">
+                <h2 class="text-lg font-bold text-brand-primary mb-2 flex items-center">
+                    <span class="mr-2">&#128203;</span> Matriks Evaluasi 17 Program Prioritas Asta Cita
+                </h2>
+                <p class="text-sm text-stone-600 leading-relaxed">
+                    Setiap program prioritas dieksekusi melalui kombinasi regulasi (Inpres/Perpres), pembentukan satgas khusus, dan alokasi anggaran teknokratis. Klik pada setiap kartu program untuk melihat metrik pencapaian, analisis kelembagaan, serta <em>second &amp; third-order insights</em>.
+                </p>
+
+                <!-- Filter Buttons -->
+                <div class="mt-4 flex flex-wrap gap-2 text-xs">
+                    <button onclick="filterPrograms('all')" class="filter-btn px-3 py-1.5 rounded-full font-medium bg-brand-primary text-white">Semua (17)</button>
+                    <button onclick="filterPrograms('ekonomi')" class="filter-btn px-3 py-1.5 rounded-full font-medium bg-stone-100 text-stone-700 hover:bg-stone-200">Swasembada &amp; Ekonomi</button>
+                    <button onclick="filterPrograms('sosial')" class="filter-btn px-3 py-1.5 rounded-full font-medium bg-stone-100 text-stone-700 hover:bg-stone-200">Kesejahteraan &amp; SDM</button>
+                    <button onclick="filterPrograms('hukum')" class="filter-btn px-3 py-1.5 rounded-full font-medium bg-stone-100 text-stone-700 hover:bg-stone-200">Hukum &amp; Birokrasi</button>
+                    <button onclick="filterPrograms('geopolitik')" class="filter-btn px-3 py-1.5 rounded-full font-medium bg-stone-100 text-stone-700 hover:bg-stone-200">Geopolitik &amp; Lingkungan</button>
+                </div>
+            </div>
+
+            <!-- Program Cards Grid -->
+            <div id="programGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Dynamic insertion via JavaScript -->
+            </div>
+        </section>
+
+
+        <!-- TAB 3: DEEP DIVE MBG -->
+        <section id="section-mbg" class="space-y-6 hidden">
+            <!-- Intro Paragraph -->
+            <div class="bg-white rounded-xl p-5 border border-stone-200 shadow-sm">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                    <div>
+                        <span class="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-0.5 rounded">PROGRAM HASIL TERBAIK CEPAT (PHTC)</span>
+                        <h2 class="text-xl font-bold text-brand-primary mt-1">Analisis Logistik &amp; Evaluasi Krisis Makan Bergizi Gratis (MBG)</h2>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs text-stone-500">Alokasi Anggaran 2026</span>
+                        <div class="text-xl font-extrabold text-brand-secondary">Rp 218,77 Triliun</div>
+                    </div>
+                </div>
+                <p class="text-sm text-stone-600 mt-2 leading-relaxed">
+                    Sebagai program andalan Kabinet Merah Putih, MBG mencetak rekor operasional logistik nasional. Namun, akselerasi masif ini memicu krisis sanitasi dan penjaminan mutu (Quality Assurance) yang memerlukan perbaikan regulasi fundamental di tingkat dapur operasional.
+                </p>
+            </div>
+
+            <!-- Stats Highlight Grid -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200">
+                    <div class="text-xs text-emerald-800 font-medium">Realisasi Penyerapan</div>
+                    <div class="text-xl font-bold text-emerald-950 mt-1">Rp 139,77 T</div>
+                    <div class="text-[11px] text-emerald-700 mt-0.5">63,89% per 16 Sep 2026</div>
+                </div>
+                <div class="bg-sky-50 p-4 rounded-xl border border-sky-200">
+                    <div class="text-xs text-sky-800 font-medium">Penerima Manfaat Aktif</div>
+                    <div class="text-xl font-bold text-sky-950 mt-1">56,99 Juta</div>
+                    <div class="text-[11px] text-sky-700 mt-0.5">46.2M Siswa + 10.8M Ibu/Balita</div>
+                </div>
+                <div class="bg-amber-50 p-4 rounded-xl border border-amber-200">
+                    <div class="text-xs text-amber-800 font-medium">Dapur SPPG Terbangun</div>
+                    <div class="text-xl font-bold text-amber-950 mt-1">27.485 Unit</div>
+                    <div class="text-[11px] text-amber-700 mt-0.5">Urban &amp; Wilayah 3T</div>
+                </div>
+                <div class="bg-rose-50 p-4 rounded-xl border border-rose-200">
+                    <div class="text-xs text-rose-800 font-medium">Sebaran Kasus Keracunan</div>
+                    <div class="text-xl font-bold text-rose-950 mt-1">36 Provinsi</div>
+                    <div class="text-[11px] text-rose-700 mt-0.5">Agustus &ndash; September 2026</div>
+                </div>
+            </div>
+
+            <!-- Charts Row 2 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- MBG Budget Chart -->
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+                    <h3 class="text-base font-bold text-brand-primary mb-1">Evolusi Anggaran &amp; Target Penerima MBG</h3>
+                    <p class="text-xs text-stone-500 mb-3">Tren Pagu APBN (2025–2027) dalam Triliun Rupiah</p>
+                    <div class="chart-container">
+                        <canvas id="chartMBGBudget"></canvas>
+                    </div>
+                </div>
+
+                <!-- CKG Health Findings Chart -->
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+                    <h3 class="text-base font-bold text-brand-primary mb-1">Hasil Skrining Cek Kesehatan Gratis (CKG)</h3>
+                    <p class="text-xs text-stone-500 mb-3">Temuan Risiko Komorbiditas Utama (Juta Orang)</p>
+                    <div class="chart-container">
+                        <canvas id="chartCKGData"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Crisis & Investigation Detailed Breakdown -->
+            <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm space-y-4">
+                <h3 class="text-base font-bold text-rose-900 flex items-center">
+                    <span class="mr-2">&#9888;</span> Anotasi Krisis Sanitasi &amp; Respon Kebijakan BGN
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                    <div class="p-3.5 bg-stone-50 rounded-lg border border-stone-200">
+                        <div class="font-bold text-stone-900 mb-1">1. Manifestasi Kasus Lapangan</div>
+                        <p class="text-stone-600 leading-relaxed">
+                            Insiden keracunan meledak di Kabupaten Batang (498 korban termasuk wali murid), Sidoarjo (424 santri), Gowa, Lampung Tengah, hingga Jayapura.
+                        </p>
+                    </div>
+                    <div class="p-3.5 bg-stone-50 rounded-lg border border-stone-200">
+                        <div class="font-bold text-stone-900 mb-1">2. Temuan Investigasi Lab</div>
+                        <p class="text-stone-600 leading-relaxed">
+                            Pelanggaran SOP waktu penyiapan: Makanan dimasak pk 19:30 malam sebelumnya untuk disajikan siang hari. Kontaminasi masif <em>Bacillus cereus</em>, <em>S. aureus</em>, &amp; <em>E. coli</em>.
+                        </p>
+                    </div>
+                    <div class="p-3.5 bg-stone-50 rounded-lg border border-stone-200">
+                        <div class="font-bold text-stone-900 mb-1">3. Intervensi Kebijakan Perka 4/2026</div>
+                        <p class="text-stone-600 leading-relaxed">
+                            BGN mewajibkan Sertifikat Laik Higiene Sanitasi (SLHS) untuk seluruh SPPG, meluncurkan aplikasi rating digital harian oleh guru/sekolah, serta sanksi penutupan dapur otomatis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- TAB 4: SENTIMEN & REPUTASI -->
+        <section id="section-sentiment" class="space-y-6 hidden">
+            <!-- Intro Paragraph -->
+            <div class="bg-white rounded-xl p-5 border border-stone-200 shadow-sm">
+                <h2 class="text-lg font-bold text-brand-primary mb-2 flex items-center">
+                    <span class="mr-2">&#128578;</span> Kepuasan Publik, Manajemen Reputasi &amp; Disonansi Komunikasi
+                </h2>
+                <p class="text-sm text-stone-600 leading-relaxed">
+                    Dinamika persetujuan (*approval rating*) publik menunjukkan fenomena *reform fatigue* dan sensitivitas masyarakat terhadap isu ekonomi mikro. Riset konsorsium *The Indonesian Institute* (TII) dan *IndoStrategi* menunjukkan akar penurunan kepuasan publik bersumber dari tata kelola komunikasi kementerian teknis.
+                </p>
+            </div>
+
+            <!-- Chart Approval Rating -->
+            <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+                <div class="mb-3">
+                    <h3 class="text-base font-bold text-brand-primary">Fluktuasi Approval Rating Pemerintahan (2025–2026)</h3>
+                    <p class="text-xs text-stone-500">Perbandingan Temuan LSI, SMRC/Kompas, dan Poltracking</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="chartApprovalRating"></canvas>
+                </div>
+            </div>
+
+            <!-- Communication Bottleneck Analysis -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+                    <div class="text-brand-secondary font-bold text-sm mb-2 flex items-center">
+                        <span class="mr-1.5">&#128226;</span> Disonansi Antar-Kementerian
+                    </div>
+                    <p class="text-xs text-stone-600 leading-relaxed">
+                        Penyampaian kebijakan sensitif secara tumpang-tindih (seperti ekstensifikasi pajak BPN &amp; revisi alokasi pendidikan) memicu spekulasi kekhawatiran beban kelas menengah.
+                    </p>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+                    <div class="text-brand-secondary font-bold text-sm mb-2 flex items-center">
+                        <span class="mr-1.5">&#127979;</span> Stigmatisasi Sosiologis
+                    </div>
+                    <p class="text-xs text-stone-600 leading-relaxed">
+                        Program "Sekolah Rakyat" menuai penolakan psikologis keluarga miskin akibat pelabelan "sekolah bansos", sedangkan Sekolah Garuda dianggap eksklusif dan elit.
+                    </p>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+                    <div class="text-brand-secondary font-bold text-sm mb-2 flex items-center">
+                        <span class="mr-1.5">&#128680;</span> Respon Crisis Communication
+                    </div>
+                    <p class="text-xs text-stone-600 leading-relaxed">
+                        Keterlambatan klarifikasi resmi pada hari pertama meledaknya kasus keracunan makanan MBG membakar persepsi negatif publik di media sosial sebelum BGN menerbitkan Perka 4/2026.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Second and Third Order Insights Table -->
+            <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+                <h3 class="text-base font-bold text-brand-primary mb-3">Matriks Implikasi Sistemik (Orde 2 &amp; 3)</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-xs">
+                        <thead>
+                            <tr class="bg-stone-100 border-b border-stone-200 text-stone-700">
+                                <th class="p-2.5 font-semibold">Kebijakan Sektor</th>
+                                <th class="p-2.5 font-semibold">Dampak Primer (Orde 1)</th>
+                                <th class="p-2.5 font-semibold">Wawasan Orde Kedua (Efek Samping)</th>
+                                <th class="p-2.5 font-semibold">Wawasan Orde Ketiga (Implikasi Struktural)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-stone-200 text-stone-600">
+                            <tr>
+                                <td class="p-2.5 font-bold text-stone-900">Mandatori B50 Energi</td>
+                                <td class="p-2.5">Hemat devisa impor solar fosil</td>
+                                <td class="p-2.5 text-amber-800 font-medium">Serapan CPO tinggi berpotensi menekan pasokan minyak goreng domestik</td>
+                                <td class="p-2.5">Risiko inflasi pangan pokok jika kuota DMO tidak dikawal secara ketat</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2.5 font-bold text-stone-900">Perpres 79/2025 (Gaji ASN)</td>
+                                <td class="p-2.5">Kenaikan gaji ASN/TNI/Polri 8-12%</td>
+                                <td class="p-2.5">Meningkatkan daya beli aparatur negara</td>
+                                <td class="p-2.5 text-emerald-800 font-medium"><em>Cost of Integrity</em>: Keseimbangan upah untuk menjustifikasi penegakan antikorupsi yang keras</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2.5 font-bold text-stone-900">Lahan Sitaan Koruptor</td>
+                                <td class="p-2.5">Konversi 1.000 Ha tanah sitaan KPK</td>
+                                <td class="p-2.5">Penyediaan lahan gratis untuk rumah MBR</td>
+                                <td class="p-2.5 text-sky-800 font-medium">Pergeseran filosofi hukum dari keadilan retributif murni menjadi keadilan distributif rakyat</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal Drawer for Program Details -->
+    <div id="programModal" class="fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 shadow-2xl border border-stone-200 relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-stone-400 hover:text-stone-700 text-xl font-bold p-1">
+                &#10005;
+            </button>
+            <div id="modalContent">
+                <!-- Dynamically Populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-400 text-xs py-6 border-t border-stone-800 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <p class="font-semibold text-stone-200">Dashboard Evaluasi Capaian 2 Tahun Kabinet Merah Putih</p>
+                <p class="text-stone-500 mt-0.5">Disusun dari Data Sekunder &amp; Primer Terintegrasi (Hingga 28 September 2026)</p>
+            </div>
+            <div class="text-stone-500 text-center sm:text-right">
+                <p>Arsitektur Informasi &amp; Analisis Kinerja Kebijakan</p>
+                <p class="text-[10px] text-stone-600">RPJMN 2025-2029 &bull; Asta Cita &bull; BGN &bull; Danantara</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application JavaScript Logic -->
+    <script>
+        // Data Store: 17 Priority Programs
+        const programsData = [
+            {
+                id: 1,
+                category: 'ekonomi',
+                title: 'Swasembada Pangan, Energi, & Air',
+                icon: '&#127806;',
+                status: 'Sangat Tinggi',
+                highlight: 'Beras 34,77M Ton & Mandatori B50',
+                summary: 'Proyeksi produksi beras menembus 34,77 juta ton. Mandatori B50 berlaku 1 Juli 2026 dengan alokasi FAME 15,6 juta KL.',
+                detail: `
+                    <h3 class="text-lg font-bold text-brand-primary">1. Swasembada Pangan, Energi, dan Air</h3>
+                    <div class="mt-3 space-y-2 text-xs text-stone-700 leading-relaxed">
+                        <p><strong>Capaian Utama Pangan:</strong> BPS memproyeksikan produksi beras 2025/2026 sebesar 34,77 juta ton. Dari 11 komoditas utama, 8 telah swasembada. Cadangan Bulog aman di angka 4,705 juta ton.</p>
+                        <p><strong>Capaian Energi:</strong> Peluncuran B50 (50% FAME CPO + 50% Solar) per 1 Juli 2026 berdasarkan Kepmen ESDM No. 257.K/2026.</p>
+                        <div class="p-3 bg-amber-50 rounded-lg border border-amber-200 font-medium text-amber-900 mt-2">
+                            <strong>Wawasan Orde Kedua:</strong> B50 menghemat devisa impor solar, namun meningkatkan risiko kenaikan harga minyak goreng domestik akibat perebutan pasokan CPO.
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 2,
+                category: 'hukum',
+                title: 'Penyempurnaan Penerimaan Negara (BPN)',
+                icon: '&#127974;',
+                status: 'Dalam Transisi',
+                highlight: 'Target Tax Ratio 10,47% (2026) &#8594; 23% (2029)',
+                summary: 'Pembentukan Badan Penerimaan Negara (BPN) memisahkan pajak & bea cukai dari Kemenkeu untuk optimalisasi basis pajak.',
+                detail: `
+                    <h3 class="text-lg font-bold text-brand-primary">2. Penyempurnaan Sistem Penerimaan Negara</h3>
+                    <div class="mt-3 space-y-2 text-xs text-stone-700 leading-relaxed">
+                        <p><strong>Pemisahan Kelembagaan:</strong> Pemisahan administrasi perpajakan menjadi BPN ditegaskan dalam RKP 2025 & RPJMN 2025-2029.</p>
+                        <p><strong>Target Fiskal:</strong> Target rasio perpajakan 10,47% PDB di RAPBN 2026, berangsur dipacu menuju target 23% pada 2029.</p>
+                        <div class="p-3 bg-stone-100 rounded-lg border border-stone-200 font-medium text-stone-800 mt-2">
+                            <strong>Tantangan Sistemik:</strong> Resistensi birokrasi internal dan ekstensifikasi data <em>underground economy</em> menjadi tantangan utama BPN.
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 3,
+                category: 'hukum',
+                title: 'Reformasi Birokrasi & Perpres 79/2025',
+                icon: '&#9878;',
+                status: 'Terealisasi',
+                highlight: 'Kenaikan Gaji ASN/TNI/Polri/Guru 8-12%',
+                summary: 'Penaikan gaji aparatur sipil dan keamanan melalui Perpres 79/2025 sebagai investasi integritas birokrasi.',
+                detail: `
+                    <h3 class="text-lg font-bold text-brand-primary">3. Reformasi Politik, Hukum, dan Birokrasi</h3>
+                    <div class="mt-3 space-y-2 text-xs text-stone-700 leading-relaxed">
+                        <p><strong>Gaji ASN & Perpres 79/2025:</strong> Berlaku mulai Oktober 2025, kenaikan gaji progresif 8% - 12% untuk ASN, Guru, Dosen, TNI, & Polri.</p>
+                        <div class="p-3 bg-emerald-50 rounded-lg border border-emerald-200 font-medium text-emerald-900 mt-2">
+                            <strong>Wawasan Orde Ketiga (Cost of Integrity):</strong> Menutup kesenjangan upah publik adalah prasyarat moral sebelum penegakan antikorupsi yang keras dapat diterapkan.
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 4,
+                category: 'hukum',
+                title: 'Pemberantasan Korupsi & Asset Recovery',
+                icon: '&#9878;',
+                status: 'Tinggi',
+                highlight: '1.000 Ha Lahan Sitaan Koruptor untuk Perumahan',
+                summary: 'Sinergi PKP & KPK mengalihfungsikan lahan sitaan terpidana korupsi menjadi perumahan rakyat MBR.',
+                detail: `
+                    <h3 class="text-lg font-bold text-brand-primary">4. Pencegahan dan Pemberantasan Korupsi</h3>
+                    <div class="mt-3 space-y-2 text-xs text-stone-700 leading-relaxed">
+                        <p><strong>Keadilan Distributif:</strong> Konversi 1.000 hektare lahan sitaan inkrah milik koruptor menjadi lokasi perumahan bersubsidi bagi MBR.</p>
+                        <div class="p-3 bg-sky-50 rounded-lg border border-sky-200 font-medium text-sky-900 mt-2">
+                            <strong>Dampak Sosiologis Hukum:</strong> Mengubah aset kejahatan kerah putih menjadi fasilitas publik langsung untuk pengentasan kemiskinan.
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 5,
+                category: 'sosial',
+                title: 'Pemberantasan Kemiskinan',
+                icon: '&#128178;',
+                status: 'Progresif',
+                highlight: 'Kemiskinan Turun ke 8,07% (Maret 2026)',
+                summary: 'Penurunan angka kemiskinan menjadi 22,06 juta jiwa dengan TPT 4,76% dan penciptaan 3,6 juta lapangan kerja baru.',
+                detail: `
+                    <h3 class="text-lg font-bold text-brand-primary">5. Pemberantasan Kemiskinan</h3>
+                    <div class="mt-3 space-y-2 text-xs text-stone-700 leading-relaxed">
+                        <p><strong>Capaian Statistik:</strong> Kemiskinan berkurang dari 8,57% (Sep 2024) ke 8,07% (Mar 2026). Target ekstrem 0% terus diakselerasi.</p>
+                        <p><strong>Catatan Kualitatif:</strong> Proporsi pekerja informal masih tinggi di angka 59,4% dengan Rasio Gini 0,379.</p>
+                    </div>
+                `
+            },
+            {
+                id: 6,
+                category: 'hukum',
+                title: 'Pemberantasan Narkoba & Judi Online',
+                icon: '&#128680;',
+                status: 'Aktif',
+                highlight: 'Satgas Khusus & Jutaan Domain Diblokir',
+                summary: 'Penindakan agresif judi online dan kejahatan terorganisir melalui pembekuan rekening & pengetatan impor ilegal.',
+                detail: `
+                    <h3 class="text-lg font-bold text-brand-primary">6. Pencegahan & Pemberantasan Kejahatan Terorganisir</h3>
+                    <div class="mt-3 space-y-2 text-xs text-stone-700 leading-relaxed">
+                        <p><strong>Operasi Kejaksaan Agung & Satgas:</strong> Pemblokiran jutaan domain judi online dan penutupan ratusan ribu rekening bank penampung.</p>
+                    </div>
+                `
+            },
+            {
+                id: 7,
+                category: 'sosial',
+                title: 'Cek Kesehatan Gratis (CKG) & BPJS',
+                icon: '&#127973;',
+                status: 'Sangat Tinggi',
+                highlight: '73 Juta Peserta Terekam (24,9% Populasi)',
+                summary: 'Program pencegahan dini penyakit degeneratif melalui skrining gratis untuk 130,7 juta warga target akhir 2026.',
+                detail: `
+                    <h3 class="text-lg font-bold text-brand-primary">7. Menjamin Pelayanan Kesehatan Massal</h3>
+                    <div class="mt-3 space-y-2 text-xs text-stone-700 leading-relaxed">
+                        <p><strong>Temuan Medis CKG:</strong> Terdeteksi 4,9M hipertensi, 5,5M prehipertensi, dan 11M obesitas.</p>
+                        <div class="p-3 bg-emerald-50 rounded-lg border border-emerald-200 font-medium text-emerald-900 mt-2">
+                            <strong>Efek Aktuaria Fiskal:</strong> Mencegah eskalasi penyakit kronis (gagal ginjal/hemodialisis) yang menguras kas BPJS Kesehatan.
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 8,
+                category: 'sosial',
+                title: 'Penguatan Pendidikan & Sains (3 Klasifikasi)',
+                icon: '&#127891;',
+                status: 'Dalam Akselerasi',
+                highlight: 'Sekolah Rakyat (165/500) & Renovasi 71k Sekolah',
+                summary: 'Restrukturisasi sekolah menjadi Sekolah Rakyat (Desil 1-2), Sekolah Garuda (STEM Unggulan), & Sekolah Terintegrasi.',
+                detail: `
+                    <h3 class="text-lg font-bold text-brand-primary">8. Penguatan Pendidikan, Sains, & Digitalisasi</h3>
+                    <div class="mt-3 space-y-2 text-xs text-stone-700 leading-relaxed">
+                        <p><strong>Sekolah Rakyat (Inpres 8/2025):</strong> Boarding school 100% gratis untuk Desil 1-2. 165 sekolah beroperasi.</p>
+                        <p><strong>Sekolah Garuda (Inpres 7/2025):</strong> Inkubator STEM berstandar internasional (80% beasiswa penuh).</p>
+                        <p><strong>Renovasi Fisik:</strong> Lonjakan renovasi gedung dari 16.167 (2025) ke 71.744 sekolah (2026) via sistem geotagging.</p>
+                    </div>
+                `
+            },
+            {
+                id: 9,
+                category: 'geopolitik',
+                title: 'Pertahanan & Diplomasi BRICS / PBB',
+                icon: '&#127757;',
+                status: 'Sangat Tinggi',
+                highlight: 'Anggota Penuh BRICS & KTT New Delhi 2026',
+                summary: 'Resmi menjadi anggota penuh BRICS per 1 Jan 2025. Pidato asertif Presiden Prabowo di KTT BRICS ke-18 New Delhi.',
+                detail: `
+                    <h3 class="text-lg font-bold text-brand-primary">9. Penguatan Pertahanan & Hubungan Internasional</h3>
+                    <div class="mt-3 space-y-2 text-xs text-stone-700 leading-relaxed">
+                        <p><strong>Diplomasi Global South:</strong> Menolak "weaponisasi" mata uang, mendorong dedolarisasi, dan hilirisasi mineral kritis di KTT BRICS New Delhi.</p>
+                    </div>
+                `
+            },
+            {
+                id: 10,
+                category: 'sosial',
+                title: 'Kesetaraan Gender & Hak Disabilitas',
+                icon: '&#128105;',
+                status: 'Berjalan',
+                highlight: 'Intervensi Ibu Hamil CKG & MBG',
+                summary: 'Perlindungan gizi ibu menyusui/balita (10,8M sasaran non-siswa) dan pengetatan hukum tindak kekerasan.',
+                detail: `
+                    <h3 class="text-lg font-bold text-brand-primary">10. Kesetaraan Gender & Perlindungan Anak</h3>
+                    <div class="mt-3 space-y-2 text-xs text-stone-700 leading-relaxed">
+                        <p>Penguatan afirmasi gizi dan perlindungan hukum terintegrasi dalam PHTC dan Satgas Kejaksaan.</p>
+                    </div>
+                `
+            },
+            {
+                id: 11,
+                category: 'geopolitik',
+                title: 'Pelestarian Lingkungan Hidup',
+                icon: '&#127795;',
+                status: 'Penuh Tantangan',
+                highlight: 'Satgas SDA/LH vs Mitigasi Deforestasi',
+                summary: 'Penindakan hukum penyelundupan komoditas alam. Catatan kritis AMAN terkait risiko proyek Food Estate.',
+                detail: `
+                    <h3 class="text-lg font-bold text-brand-primary">11. Pelestarian Lingkungan Hidup</h3>
+                    <div class="mt-3 space-y-2 text-xs text-stone-700 leading-relaxed">
+                        <p>Pengawasan ketat ekosistem oleh Satgas SDA/LH di tengah masifnya proyek pembukaan sawah baru di Papua/Kalimantan.</p>
+                    </div>
+                `
+            },
+            {
+                id: 12,
+                category: 'ekonomi',
+                title: 'Ketersediaan Pupuk & Benih Bersubsidi',
+                icon: '&#127780;',
+                status: 'Terealisasi',
+                highlight: 'Penebusan Pupuk Cukup KTP & NTUP 132,84',
+                summary: 'Pemangkasan birokrasi distribusi pupuk langsung via KTP mendongkrak Nilai Tukar Usaha Pertanian (NTUP).',
+                detail: `
+                    <h3 class="text-lg font-bold text-brand-primary">12. Menjamin Ketersediaan Pupuk & Benih</h3>
+                    <div class="mt-3 space-y-2 text-xs text-stone-700 leading-relaxed">
+                        <p>Penebusan pupuk bersubsidi cukup menggunakan KTP menjaga margin keuntungan petani perdesaan.</p>
+                    </div>
+                `
+            },
+            {
+                id: 13,
+                category: 'sosial',
+                title: 'Program 3 Juta Rumah Bersubsidi',
+                icon: '&#127968;',
+                status: 'Progresif',
+                highlight: 'Tenor KPR 40 Thn & Bedah Rumah 400rb Unit',
+                summary: 'Penyediaan 1M rumah perkotaan & 2M perdesaan dengan bunga fixed 5%, DP 1%, dan pembebasan BPHTB.',
+                detail: `
+                    <h3 class="text-lg font-bold text-brand-primary">13. Program 3 Juta Rumah</h3>
+                    <div class="mt-3 space-y-2 text-xs text-stone-700 leading-relaxed">
+                        <p><strong>Inovasi Pembiayaan:</strong> Realisasi FLPP 200.809 unit & lonjakan target bedah rumah menjadi 400.000 unit di 2026.</p>
+                    </div>
+                `
+            },
+            {
+                id: 14,
+                category: 'ekonomi',
+                title: 'Pemerataan Ekonomi & Penguatan UMKM',
+                icon: '&#127981;',
+                status: 'Tinggi',
+                highlight: 'Desentralisasi SPPG MBG Serap Produk Lokal',
+                summary: 'Puluhan ribu dapur SPPG MBG diwajibkan menyerap bahan baku pangan dari UMKM & petani perdesaan lokal.',
+                detail: `
+                    <h3 class="text-lg font-bold text-brand-primary">14. Pemerataan Ekonomi & Penguatan UMKM</h3>
+                    <div class="mt-3 space-y-2 text-xs text-stone-700 leading-relaxed">
+                        <p>Menciptakan efek perputaran uang (velocity of money) secara cepat di tingkat desa melalui rantai pasok MBG.</p>
+                    </div>
+                `
+            },
+            {
+                id: 15,
+                category: 'ekonomi',
+                title: 'Hilirisasi, Danantara, & Patriot Bonds',
+                icon: '&#128188;',
+                status: 'Sangat Tinggi',
+                highlight: 'Danantara + Groundbreaking Rp 116 Triliun',
+                summary: 'Superholding Danantara memangkas BUMN & meresmikan 13 proyek hilirisasi terpadu (Cilacap, Morowali, Dumai).',
+                detail: `
+                    <h3 class="text-lg font-bold text-brand-primary">15. Hilirisasi & Superholding Danantara</h3>
+                    <div class="mt-3 space-y-2 text-xs text-stone-700 leading-relaxed">
+                        <p><strong>Groundbreaking Tahap II (29 April 2026):</strong> Investasi Rp 116T untuk kilang BBM, baja Morowali, & hilirisasi kelapa Maluku.</p>
+                    </div>
+                `
+            },
+            {
+                id: 16,
+                category: 'hukum',
+                title: 'Kerukunan Umat Beragama (Wasathiyyah)',
+                icon: '&#128330;',
+                status: 'Stabil',
+                highlight: 'Moderasi Beragama & Regulasi Ibadah Terukur',
+                summary: 'Menjaga harmoni kebinekaan sebagai fondasi utama stabilitas investasi dan keamanan nasional.',
+                detail: `
+                    <h3 class="text-lg font-bold text-brand-primary">16. Memastikan Kerukunan Umat Beragama</h3>
+                    <div class="mt-3 space-y-2 text-xs text-stone-700 leading-relaxed">
+                        <p>Pendekatan inklusif dan penyederhanaan perizinan rumah ibadah.</p>
+                    </div>
+                `
+            },
+            {
+                id: 17,
+                category: 'sosial',
+                title: 'Seni Budaya, Ekraf, & Diplomasi Olahraga',
+                icon: '&#127912;',
+                status: 'Berjalan',
+                highlight: 'Soft Power Diplomacy & Industri Kreatif',
+                summary: 'Penempatan seni, musik, film, gim digital, dan prestasi olahraga sebagai penguat jenama (brand) Indonesia.',
+                detail: `
+                    <h3 class="text-lg font-bold text-brand-primary">17. Pelestarian Seni Budaya & Olahraga</h3>
+                    <div class="mt-3 space-y-2 text-xs text-stone-700 leading-relaxed">
+                        <p>Pemanfaatan industri kreatif untuk memperkuat daya tawar ekosistem ekonomi baru.</p>
+                    </div>
+                `
+            }
+        ];
+
+        // Label Wrapping Helper for Chart.js
+        function wrapLabel(str, maxChars = 16) {
+            if (typeof str !== 'string') return str;
+            if (str.length <= maxChars) return str;
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).trim().length <= maxChars) {
+                    currentLine = (currentLine + ' ' + word).trim();
+                } else {
+                    if (currentLine) lines.push(currentLine);
+                    currentLine = word;
+                }
+            });
+            if (currentLine) lines.push(currentLine);
+            return lines;
+        }
+
+        // Initialize App & Charts on DOM Content Loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProgramsGrid(programsData);
+            initCharts();
+        });
+
+        // Tab Switching Function
+        function switchTab(tabKey) {
+            const sections = ['overview', 'programs', 'mbg', 'sentiment'];
+            sections.forEach(s => {
+                const el = document.getElementById(`section-${s}`);
+                const btn = document.getElementById(`tab-${s}`);
+                if (s === tabKey) {
+                    el.classList.remove('hidden');
+                    btn.classList.add('bg-brand-secondary', 'text-white', 'shadow-sm');
+                    btn.classList.remove('text-stone-200', 'hover:bg-emerald-800/50');
+                } else {
+                    el.classList.add('hidden');
+                    btn.classList.remove('bg-brand-secondary', 'text-white', 'shadow-sm');
+                    btn.classList.add('text-stone-200', 'hover:bg-emerald-800/50');
+                }
+            });
+        }
+
+        // Render Program Cards
+        function renderProgramsGrid(data) {
+            const grid = document.getElementById('programGrid');
+            grid.innerHTML = '';
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'bg-white p-4 rounded-xl border border-stone-200 shadow-sm hover:shadow-md transition flex flex-col justify-between cursor-pointer';
+                card.onclick = () => openModal(item.id);
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-2xl">${item.icon}</span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">${item.status}</span>
+                        </div>
+                        <h4 class="font-bold text-sm text-brand-primary">${item.title}</h4>
+                        <div class="text-xs font-semibold text-brand-secondary mt-1">${item.highlight}</div>
+                        <p class="text-xs text-stone-600 mt-2 leading-relaxed line-clamp-3">${item.summary}</p>
+                    </div>
+                    <div class="mt-4 pt-2 border-t border-stone-100 flex items-center justify-between text-xs text-stone-500 font-medium">
+                        <span>Lihat Analisis Rinci</span>
+                        <span>&#8594;</span>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter Program Cards
+        function filterPrograms(cat) {
+            const btns = document.querySelectorAll('.filter-btn');
+            btns.forEach(b => {
+                b.classList.remove('bg-brand-primary', 'text-white');
+                b.classList.add('bg-stone-100', 'text-stone-700');
+            });
+            event.target.classList.remove('bg-stone-100', 'text-stone-700');
+            event.target.classList.add('bg-brand-primary', 'text-white');
+
+            if (cat === 'all') {
+                renderProgramsGrid(programsData);
+            } else {
+                const filtered = programsData.filter(p => p.category === cat);
+                renderProgramsGrid(filtered);
+            }
+        }
+
+        // Modal Controls
+        function openModal(id) {
+            const item = programsData.find(p => p.id === id);
+            if (!item) return;
+            const content = document.getElementById('modalContent');
+            content.innerHTML = item.detail;
+            document.getElementById('programModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('programModal').classList.add('hidden');
+        }
+
+        // Chart.js Initializations
+        function initCharts() {
+            // Chart 1: Kemiskinan
+            const ctx1 = document.getElementById('chartKemiskinan').getContext('2d');
+            new Chart(ctx1, {
+                type: 'line',
+                data: {
+                    labels: ['Sep 2024', 'Mar 2025', 'Mar 2026', 'Target 2029'].map(l => wrapLabel(l)),
+                    datasets: [
+                        {
+                            label: 'Tingkat Kemiskinan (%)',
+                            data: [8.57, 8.47, 8.07, 4.90],
+                            borderColor: '#8C4327',
+                            backgroundColor: 'rgba(140, 67, 39, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.3
+                        },
+                        {
+                            label: 'Pengangguran TPT (%)',
+                            data: [4.91, 4.76, null, 4.30],
+                            borderColor: '#1E3A2B',
+                            borderDash: [5, 5],
+                            borderWidth: 2,
+                            tension: 0.1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.parsed.y + '%';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: { min: 3, max: 10, ticks: { callback: v => v + '%' } }
+                    }
+                }
+            });
+
+            // Chart 2: Danantara & BUMN
+            const ctx2 = document.getElementById('chartDanantara').getContext('2d');
+            new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: ['BUMN Entitas', 'Laba BUMN (Rp T)', 'Patriot Bonds (Rp T)', 'Efisiensi (Rp T)'].map(l => wrapLabel(l)),
+                    datasets: [{
+                        label: 'Nilai / Metrik',
+                        data: [300, 326, 50, 50],
+                        backgroundColor: ['#1E3A2B', '#D97706', '#8C4327', '#0284C7'],
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: (ctx) => ' Nilai: ' + ctx.parsed.y
+                            }
+                        }
+                    },
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+
+            // Chart 3: MBG Budget
+            const ctx3 = document.getElementById('chartMBGBudget').getContext('2d');
+            new Chart(ctx3, {
+                type: 'bar',
+                data: {
+                    labels: ['2025 (Awal)', '2026 (Aktif)', '2027 (Proyeksi)'].map(l => wrapLabel(l)),
+                    datasets: [
+                        {
+                            label: 'Pagu Anggaran (Rp Triliun)',
+                            data: [71.0, 218.77, 240.2],
+                            backgroundColor: '#1E3A2B',
+                            borderRadius: 6
+                        },
+                        {
+                            label: 'Target Penerima (Juta Jiwa)',
+                            data: [82.9, 56.99, 72.1],
+                            backgroundColor: '#D97706',
+                            borderRadius: 6
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } }
+                    },
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+
+            // Chart 4: CKG Findings
+            const ctx4 = document.getElementById('chartCKGData').getContext('2d');
+            new Chart(ctx4, {
+                type: 'bar',
+                indexAxis: 'y',
+                data: {
+                    labels: ['Hipertensi', 'Prehipertensi', 'Obesitas'].map(l => wrapLabel(l)),
+                    datasets: [{
+                        label: 'Kasus Terdeteksi (Juta)',
+                        data: [4.9, 5.5, 11.0],
+                        backgroundColor: '#8C4327',
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: { beginAtZero: true, ticks: { callback: v => v + ' Jt' } }
+                    }
+                }
+            });
+
+            // Chart 5: Approval Rating
+            const ctx5 = document.getElementById('chartApprovalRating').getContext('2d');
+            new Chart(ctx5, {
+                type: 'line',
+                data: {
+                    labels: ['100 Hari (LSI)', 'Mid-2026 (SMRC/Kompas)', 'Sep 2026 (Poltracking)'].map(l => wrapLabel(l)),
+                    datasets: [{
+                        label: 'Tingkat Kepuasan Publik (%)',
+                        data: [81.4, 51.1, 74.9],
+                        borderColor: '#0284C7',
+                        backgroundColor: 'rgba(2, 132, 199, 0.15)',
+                        fill: true,
+                        borderWidth: 3,
+                        pointRadius: 6,
+                        pointHoverRadius: 8,
+                        tension: 0.2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: (ctx) => ' Approval Rating: ' + ctx.parsed.y + '%'
+                            }
+                        }
+                    },
+                    scales: {
+                        y: { min: 40, max: 100, ticks: { callback: v => v + '%' } }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
